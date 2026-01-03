@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-CATCALC v4.0  ——  万能猫计算器
-一只会三角、双曲、对数、复数、历史、插件、彩色卖萌的猫咪
-"""
-import math, cmath, os, sys, operator, pprint, traceback
+
+import math
+import cmath
+import os
+import sys
+import operator
+import pprint
+import traceback
 from decimal import Decimal, getcontext
 from functools import lru_cache
 
 # ------------------ 彩色工具 ------------------
 class T:
-    """迷你彩色终端"""
+    """彩色终端很好玩的"""
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
@@ -36,7 +38,7 @@ def load_plugins():
             mod_name = fname[:-3]
             try:
                 mod = __import__(mod_name)
-                # 约定：模块里 dict FUNC={符号:(名字,函数,需第二数?,需弧度?)}
+                # 约定:模块里 dict FUNC={符号:(名字,函数,需第二数?,需弧度?)}
                 PLUGINS.update(getattr(mod, "FUNC", {}))
             except Exception as e:
                 print(color(f"[插件] 加载 {fname} 失败：{e}", T.WARNING))

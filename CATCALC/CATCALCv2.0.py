@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-CATCALC v3.0
-一只会阶乘、开根、三角函数还会卖萌的猫咪计算器
-"""
 
 import math
 import sys
